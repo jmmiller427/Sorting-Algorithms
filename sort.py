@@ -4,6 +4,7 @@
 
 import random
 
+# selection sort
 def selection(array, count):
 	j = 0
 
@@ -15,6 +16,7 @@ def selection(array, count):
 		j = j + 1
 	return array
 
+# insertion sort
 def insertion(array, count):
 	
 	for i in range(1, len(array)):
@@ -30,6 +32,7 @@ def insertion(array, count):
 
 	return array
 
+# quick sort with random pivot 
 def quick1(array, count):
 	pivot = random.choice(array)
 	less = []
@@ -51,6 +54,7 @@ def quick1(array, count):
 
 	return quick1(less, count) + equal + quick1(greater, count)
 
+# quick sort with pivot as first number of list
 def quick2(array, count):
 	pivot = array[0]
 	less = []
@@ -71,7 +75,8 @@ def quick2(array, count):
 			count.append(1)
 
 	return quick1(less, count) + equal + quick1(greater, count)
-	
+
+# merge sort
 def mergesort(array, count):
 
 	result = []
@@ -100,6 +105,7 @@ def mergesort(array, count):
 	return result
 
 def main():
+	
 	sort = []
 	sort_input = ''
 	count = []
@@ -140,37 +146,3 @@ def main():
 		print(mergesort(sort, count))
 		print "Count = ", len(count)
 main()
-'''
-
-def main():
-
-	array = []
-	count = 0
-	counter = 0
-
-	# Make array 1-100
-	for i in range (1,1600):
-		array.append(i)
-
-	# Make array 100-1
-	#array.reverse()
-
-	# Swap 2i-1 and 2i
-	#for k in range(1, len(array), 2):
-	#	array[k - 1], array[k] = array[k], array[k - 1]
-
-	# Random array
-	#for l in range(1, 101):
-	#	number = random.randrange(0, 999999)
-	#	array.append(number)
-
-	for j in range(0,50):
-		answer = quick2(array, count)
-		
-		counter += answer
-
-	average_count = (counter / 100)
-	print(average_count)
-
-main()
-'''
